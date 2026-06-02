@@ -19,8 +19,8 @@ class LoginController extends Controller
         // Validación simple sin base de datos
         if ($credentials['email'] === 'admin@example.com' && $credentials['password'] === 'password') {
             Session::put('authenticated', true);
-            Session::put('user', ['email' => $credentials['email']]);
-            return redirect()->route('home');
+            Session::put('user', ['email' => $credentials['email'], 'name' => 'Juan Pérez']);
+            return redirect()->route('inicio');
         }
 
         return back()->withErrors([

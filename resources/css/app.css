@@ -7,4 +7,106 @@
 
 @theme {
     --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Primary Colors */
+    --color-primary-dark: #110666;
+    --color-primary: #1e3c72;
+    --color-primary-light: #2a5298;
+
+    /* Success Colors */
+    --color-success: #28a745;
+    --color-success-dark: #218838;
+    --color-success-bg: #d4edda;
+    --color-success-text: #155724;
+
+    /* Error Colors */
+    --color-error: #c0392b;
+    --color-error-bg: #fadbd8;
+
+    /* Warning Colors */
+    --color-warning: #f39c12;
+    --color-warning-bg: #fff3cd;
+    --color-warning-text: #856404;
+
+    /* Text Colors */
+    --color-text-dark: #2c3e50;
+    --color-text-medium: #5a6c7d;
+    --color-text-light: #7f8c8d;
+
+    /* Border Colors */
+    --color-border: #e0e0e0;
+    --color-border-table: #e8e8e8;
+
+    /* Background Colors */
+    --color-bg-light: #f8f9fa;
+    --color-bg-input: #fafafa;
+}
+
+/* Carousel Styles */
+.login-carousel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: carousel 18s infinite;
+}
+
+.carousel-slide:nth-child(1) {
+    background-image: url('../../public/images/fondo1.png');
+    animation-delay: 0s;
+}
+
+.carousel-slide:nth-child(2) {
+    background-image: url('../../public/images/fondo2.png');
+    animation-delay: 6s;
+}
+
+.carousel-slide:nth-child(3) {
+    background-image: url('../../public/images/fondo3.png');
+    animation-delay: 12s;
+}
+
+@keyframes carousel {
+    0%, 33.33% {
+        opacity: 0.7;
+    }
+    33.34%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Form Input Styles */
+.form-input {
+    @apply w-full p-[14px_16px] border-2 border-border rounded-md text-base bg-bg-input transition-all duration-300 hover:border-primary focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(30,60,114,0.1)] focus:bg-white;
+}
+
+/* Button Styles */
+.btn-primary {
+    @apply w-full p-4 bg-primary-dark text-white border-none rounded-md text-base font-semibold cursor-pointer transition-all duration-300 hover:bg-primary-light hover:-translate-y-px active:translate-y-0;
+}
+
+.btn-success {
+    @apply w-full p-4 bg-success text-white border-none rounded-md text-base font-semibold cursor-pointer transition-all duration-300 hover:bg-success-dark hover:-translate-y-px active:translate-y-0;
+}
+
+.btn-sm-primary {
+    @apply px-3 py-2 bg-primary text-white border-none rounded-sm cursor-pointer transition-all duration-300 text-[0.8rem] font-semibold hover:bg-primary-dark hover:-translate-y-px;
+}
+
+.btn-sm-success {
+    @apply px-[1.5rem] py-[0.8rem] bg-success text-white border-none rounded-md cursor-pointer transition-all duration-300 text-[0.9rem] font-semibold hover:bg-success-dark hover:-translate-y-px;
 }
