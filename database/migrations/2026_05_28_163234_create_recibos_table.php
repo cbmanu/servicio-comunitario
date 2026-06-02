@@ -16,7 +16,7 @@ return new class extends Migration
             $table->bigInteger('mes'); // int8
             $table->bigInteger('semana_quincena'); // int8
             $table->bigInteger('numero_nomina'); // int8
-            $table->float('unidades', 8, 2); // float8 (puedes usar double si requieres más precisión)
+            $table->float('unidades', 8, 2 ); // float8 (puedes usar double si requieres más precisión)
             $table->float('monto_asigna', 8, 2); // float8
             $table->float('monto_deduce', 8, 2); // float8
             $table->string('descripcion', 50); // varchar(50)
