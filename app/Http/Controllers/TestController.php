@@ -10,8 +10,14 @@ class TestController extends Controller
     public function index()
     {
     //Consulta de pruebas
-    $trabajadores=DB::table('datos_trabajador')->get();
+    $nominas = DB::table('recibos')
+    ->select('id_trabajador')
+    ->selectRaw('SUM(monto_asigna) as total_asignaciones')
+    ->selectRaw('SUM(monto_deduce) as total_deducciones')
+    ->selectRaw('SUM(monto_asigna) - SUM(monto_deduce) as neto_a_pagar')
+    ->groupBy('id_trabajador')
+    ->get();
 
-        return view('home',compact('trabajadores'));
+        return view('home',compact('nominas'));
     }
 }

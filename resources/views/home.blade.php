@@ -19,26 +19,8 @@
     </head>
     <body>
 <h1>Nómina de Trabajadores</h1>
-
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Cédula</th>
-                <th>Nombre Completo</th>
-                <th>Cargo</th>
-                <th>Departamento</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($trabajadores as $trabajador)
-                <tr>
-                    <td>{{ $trabajador->cedula }}</td>
-                    <td>{{ $trabajador->nombrescompleto }}</td>
-                    <td>{{ $trabajador->descripcion_cargo }}</td>
-                    <td>{{ $trabajador->departamento }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+@foreach ($nominas as $nomina)
+    <p>Trabajador: {{ $nomina->id_trabajador }} - Neto: {{ $nomina->neto_a_pagar }}</p>
+@endforeach
     </body>
 </html>
