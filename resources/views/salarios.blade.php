@@ -67,13 +67,14 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($nominas as $nomina)                        
                         <tr class="hover:bg-bg-light even:bg-bg-input even:hover:bg-bg-light border-b border-border-table">
-                            <td class="p-4 font-medium">Enero</td>
-                            <td class="p-4">2024</td>
-                            <td class="p-4">Bs. 15.000,00</td>
-                            <td class="p-4 text-success">Bs. 2.500,00</td>
-                            <td class="p-4 text-error">Bs. 1.200,00</td>
-                            <td class="p-4 font-bold text-primary-dark">Bs. 16.300,00</td>
+                            <td class="p-4 font-medium">{{ $nomina->mes }}</td>
+                            <td class="p-4">{{ $nomina->anio }}</td>
+                            <td class="p-4">Bs. {{number_format($nomina->sueldo_basico,2,',','.')}}</td>
+                            <td class="p-4 text-success">Bs. {{number_format($nomina->total_asignaciones,2,',','.')}}</td>
+                            <td class="p-4 text-error">Bs. {{number_format($nomina->total_deducciones,2,',','.')}}</td>
+                            <td class="p-4 font-bold text-primary-dark">Bs. {{ number_format($nomina->neto_a_pagar, 2, ',', '.') }}</td>
                             <td class="p-4 text-center">
                                 <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-[0.8rem] font-medium">Pagado</span>
                             </td>
@@ -87,86 +88,7 @@
                                 </button>
                             </td>
                         </tr>
-                        <tr class="hover:bg-bg-light even:bg-bg-input even:hover:bg-bg-light border-b border-border-table">
-                            <td class="p-4 font-medium">Febrero</td>
-                            <td class="p-4">2024</td>
-                            <td class="p-4">Bs. 15.000,00</td>
-                            <td class="p-4 text-success">Bs. 2.500,00</td>
-                            <td class="p-4 text-error">Bs. 1.200,00</td>
-                            <td class="p-4 font-bold text-primary-dark">Bs. 16.300,00</td>
-                            <td class="p-4 text-center">
-                                <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-[0.8rem] font-medium">Pagado</span>
-                            </td>
-                            <td class="p-4 text-center">
-                                <button onclick="descargarPDF('febrero-2024')" class="btn-sm-primary flex items-center gap-2 mx-auto">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-                                    </svg>
-                                    PDF
-                                </button>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-bg-light even:bg-bg-input even:hover:bg-bg-light border-b border-border-table">
-                            <td class="p-4 font-medium">Marzo</td>
-                            <td class="p-4">2024</td>
-                            <td class="p-4">Bs. 15.000,00</td>
-                            <td class="p-4 text-success">Bs. 2.500,00</td>
-                            <td class="p-4 text-error">Bs. 1.200,00</td>
-                            <td class="p-4 font-bold text-primary-dark">Bs. 16.300,00</td>
-                            <td class="p-4 text-center">
-                                <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-[0.8rem] font-medium">Pagado</span>
-                            </td>
-                            <td class="p-4 text-center">
-                                <button onclick="descargarPDF('marzo-2024')" class="btn-sm-primary flex items-center gap-2 mx-auto">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-                                    </svg>
-                                    PDF
-                                </button>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-bg-light even:bg-bg-input even:hover:bg-bg-light border-b border-border-table">
-                            <td class="p-4 font-medium">Abril</td>
-                            <td class="p-4">2024</td>
-                            <td class="p-4">Bs. 15.000,00</td>
-                            <td class="p-4 text-success">Bs. 2.500,00</td>
-                            <td class="p-4 text-error">Bs. 1.200,00</td>
-                            <td class="p-4 font-bold text-primary-dark">Bs. 16.300,00</td>
-                            <td class="p-4 text-center">
-                                <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-[0.8rem] font-medium">Pagado</span>
-                            </td>
-                            <td class="p-4 text-center">
-                                <button onclick="descargarPDF('abril-2024')" class="btn-sm-primary flex items-center gap-2 mx-auto">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-                                    </svg>
-                                    PDF
-                                </button>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-bg-light even:bg-bg-input even:hover:bg-bg-light border-b border-border-table">
-                            <td class="p-4 font-medium">Mayo</td>
-                            <td class="p-4">2024</td>
-                            <td class="p-4">Bs. 15.000,00</td>
-                            <td class="p-4 text-success">Bs. 2.500,00</td>
-                            <td class="p-4 text-error">Bs. 1.200,00</td>
-                            <td class="p-4 font-bold text-primary-dark">Bs. 16.300,00</td>
-                            <td class="p-4 text-center">
-                                <span class="px-3 py-1 bg-warning-bg text-warning-text rounded-full text-[0.8rem] font-medium">Pendiente</span>
-                            </td>
-                            <td class="p-4 text-center">
-                                <button onclick="descargarPDF('mayo-2024')" class="btn-sm-primary flex items-center gap-2 mx-auto">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
-                                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-                                    </svg>
-                                    PDF
-                                </button>
-                            </td>
-                        </tr>
+                        @endforeach                        
                     </tbody>
                 </table>
             </div>
