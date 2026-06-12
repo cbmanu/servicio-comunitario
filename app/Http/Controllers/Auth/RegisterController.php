@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
-class Register extends Controller
+class RegisterController extends Controller
 {
     /**
      * Handle the incoming request.
