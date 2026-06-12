@@ -10,7 +10,7 @@ class SalariosController extends Controller
     public function show(): View
     {
     // El ID que recibes desde tu formulario o API
-    $idTrabajadorBuscado = 1; 
+    $idTrabajadorBuscado = 2; 
 
     $nominas = DB::table('recibos')
     ->select('anio', 'mes', 'semana_quincena', 'numero_nomina')
