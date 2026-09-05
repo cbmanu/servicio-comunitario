@@ -5,7 +5,7 @@
         <a href="{{ route('salarios') }}" class="px-6 py-[0.6rem] {{ $activeRoute === 'salarios' ? 'bg-white text-primary' : 'bg-white/15 text-white' }} border border-white/30 rounded-md cursor-pointer transition-all duration-300 text-[0.9rem] font-medium hover:bg-white/25 hover:-translate-y-px">Salarios</a>
     </div>
     <div class="flex items-center gap-4">
-        <span class="text-white text-[0.95rem] font-medium">Bienvenido, {{ session('user.name') ?? 'Usuario' }}</span>
+        <span class="text-white text-[0.95rem] font-medium">Bienvenido, {{ auth()->user()->name }}</span>
         <form method="POST" action="{{ route('logout') }}">
             @csrf
             <button type="submit" class="px-6 py-[0.6rem] bg-error text-white border-none rounded-md cursor-pointer transition-all duration-300 text-[0.9rem] font-medium hover:bg-[#a93226] hover:-translate-y-px">Cerrar Sesión</button>

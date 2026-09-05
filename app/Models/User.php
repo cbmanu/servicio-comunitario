@@ -17,6 +17,11 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
+    public static function findByCedula(string|int $cedula): ?self
+    {
+        return self::where('cedula', $cedula)->first();
+    }
+
     /**
      * Get the attributes that should be cast.
      *

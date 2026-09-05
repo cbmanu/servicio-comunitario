@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\DatosTrabajador;
 
 class SalariosController extends Controller
 {
     public function show(): View
     {
-    // El ID que recibes desde tu formulario o API
-    $idTrabajadorBuscado = 2; 
+    $user = Auth::user();
 
+    $trabajador = DatosTrabajador::where('cedula', $user->cedula)->first();
+    $idTrabajadorBuscado = $trabajador->id_trabajador; 
     $nominas = DB::table('recibos')
     ->select('anio', 'mes', 'semana_quincena', 'numero_nomina')
     ->selectRaw("SUM(CASE WHEN descripcion = 'SUELDO BASICO' THEN monto_asigna ELSE 0 END) as sueldo_basico")
