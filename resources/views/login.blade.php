@@ -15,12 +15,6 @@
                 </div>
             @endif
 
-            <div class="bg-success-bg text-success-text p-3 rounded mb-6 text-[0.85rem] border-l-4 border-success">
-                <strong class="block mb-1">Credenciales de prueba:</strong>
-                Email: admin@example.com<br>
-                Contraseña: password
-            </div>
-
             <form method="POST" action="{{ route('login.submit') }}">
                 @csrf
                 <div class="mb-6">

@@ -28,7 +28,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
             // Redireccionar al home
-            return redirect()->intended('home')->with('success', 'Has iniciado sesión exitosamente.');
+            return redirect()->intended('salarios')->with('success', 'Has iniciado sesión exitosamente.');
         }
 
         // 3. Si las credenciales fallan, regresar con un error

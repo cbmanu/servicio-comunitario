@@ -32,6 +32,6 @@ class RegisterController extends Controller
         //logear el usuario
         Auth::login($user);
 
-        return redirect('/home')->with('success', 'Registro exitoso. Bienvenido a la aplicación.');
+        return redirect('/salarios')->with('success', 'Registro exitoso. Bienvenido a la aplicación.');
     }
 }
