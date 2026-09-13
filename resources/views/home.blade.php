@@ -10,6 +10,7 @@
             <h2 class="mb-2 text-2xl font-bold text-primary-dark">Información del trabajador</h2>
             <p class="mb-8 text-text-medium">Datos personales y laborales registrados</p>
 
+            @if($trabajador)
             <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                 <div>
                     <span class="text-sm font-medium text-text-medium">Nombre completo</span>
@@ -52,6 +53,11 @@
                     <p class="mt-1 text-base text-text-dark">{{ $trabajador->mes }}</p>
                 </div>
             </div>
+            @else
+            <p class="text-text-medium">No se encontraron datos del trabajador en el sistema.</p>
+            @endif
         </div>
     </div>
+
+    @include('partials.logo-link')
 @endsection

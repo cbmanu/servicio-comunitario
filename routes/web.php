@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SalariosController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\LoginController;
@@ -17,3 +18,4 @@ Route::post('/register', RegisterController::class)->middleware('guest')->name('
 
 Route::get('/home', [HomeController::class, 'show'])->name('home')->middleware('auth.session');
 Route::get('/salarios', [SalariosController::class, 'show'])->name('salarios')->middleware('auth.session');
+Route::get('/pdf/recibo', [PdfController::class, 'generarRecibo'])->name('pdf.recibo')->middleware('auth.session');

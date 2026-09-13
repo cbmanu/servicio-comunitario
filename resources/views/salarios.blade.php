@@ -7,13 +7,13 @@
 @section('content')
     <div class="max-w-[1400px] mx-8 my-8 lg:mx-auto">
         <div class="flex flex-col lg:flex-row gap-6">
-            
+
             <div class="lg:w-4/4">
                 <div class="bg-white p-8 rounded-lg shadow-[0_2px_8px_rgba(0,0,0,0.08)] mb-8 border-l-4 border-primary">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-primary text-[2rem] font-bold">Historial de Salarios</h2>
                     </div>
-                
+
             <p class="text-text-medium text-base mb-6">Salarios de los últimos 3 meses</p>
 
             <div class="overflow-x-auto">
@@ -31,7 +31,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($nominas as $nomina)                        
+                        @foreach($nominas as $nomina)
                         <tr class="hover:bg-bg-light even:bg-bg-input even:hover:bg-bg-light border-b border-border-table">
                             <td class="p-4 font-medium">{{ $nomina->mes }}</td>
                             <td class="p-4">{{ $nomina->anio }}</td>
@@ -43,16 +43,16 @@
                                 <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-[0.8rem] font-medium">Pagado</span>
                             </td>
                             <td class="p-4 text-center">
-                                <button onclick="descargarPDF('enero-2024')" class="btn-sm-primary flex items-center gap-2 mx-auto">
+                                <a href="{{ route('pdf.recibo', ['anio' => $nomina->anio, 'mes' => $nomina->mes, 'numero_nomina' => $nomina->numero_nomina]) }}" class="btn-sm-primary inline-flex items-center gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
                                         <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
                                         <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
                                     </svg>
                                     PDF
-                                </button>
+                                </a>
                             </td>
                         </tr>
-                        @endforeach                        
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -111,6 +111,9 @@
                 </div>
             </div>
         </div> -->
+
+    @include('partials.logo-link')
+
     @push('scripts')
         <script src="{{ asset('js/salarios.js') }}"></script>
     @endpush
