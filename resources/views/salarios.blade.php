@@ -5,28 +5,28 @@
 ])
 
 @section('content')
-    <div class="max-w-[1400px] mx-8 my-8 lg:mx-auto">
+    <div class="max-w-[1400px] mx-4 my-6 lg:mx-auto lg:my-8">
         <div class="flex flex-col lg:flex-row gap-6">
             
             <div class="lg:w-4/4">
-                <div class="bg-white p-8 rounded-lg shadow-[0_2px_8px_rgba(0,0,0,0.08)] mb-8 border-l-4 border-primary">
+                <div class="mb-8">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-primary text-[2rem] font-bold">Historial de Salarios</h2>
+                        <h2 class="text-primary text-[1.5rem] lg:text-[2rem] font-bold">Historial de Salarios</h2>
                     </div>
                 
             <p class="text-text-medium text-base mb-6">Salarios de los últimos 3 meses</p>
 
-            <div class="overflow-x-auto">
+            <div class="overflow-x-auto rounded-lg border border-border-table bg-bg-input">
                 <table class="w-full border-collapse" role="table" aria-label="Tabla de salarios">
                     <thead>
                         <tr class="bg-primary-dark text-white">
                             <th class="p-4 text-left font-semibold text-[0.9rem] uppercase tracking-wider border-b border-primary-light">Mes</th>
                             <th class="p-4 text-left font-semibold text-[0.9rem] uppercase tracking-wider border-b border-primary-light">Año</th>
-                            <th class="p-4 text-left font-semibold text-[0.9rem] uppercase tracking-wider border-b border-primary-light">Salario Base</th>
-                            <th class="p-4 text-left font-semibold text-[0.9rem] uppercase tracking-wider border-b border-primary-light">Bonificaciones</th>
-                            <th class="p-4 text-left font-semibold text-[0.9rem] uppercase tracking-wider border-b border-primary-light">Deducciones</th>
+                            <th class="hidden md:table-cell p-4 text-left font-semibold text-[0.9rem] uppercase tracking-wider border-b border-primary-light">Salario Base</th>
+                            <th class="hidden md:table-cell p-4 text-left font-semibold text-[0.9rem] uppercase tracking-wider border-b border-primary-light">Bonificaciones</th>
+                            <th class="hidden md:table-cell p-4 text-left font-semibold text-[0.9rem] uppercase tracking-wider border-b border-primary-light">Deducciones</th>
                             <th class="p-4 text-left font-semibold text-[0.9rem] uppercase tracking-wider border-b border-primary-light">Salario Neto</th>
-                            <th class="p-4 text-center font-semibold text-[0.9rem] uppercase tracking-wider border-b border-primary-light">Estado</th>
+                            <th class="hidden md:table-cell p-4 text-center font-semibold text-[0.9rem] uppercase tracking-wider border-b border-primary-light">Estado</th>
                             <th class="p-4 text-center font-semibold text-[0.9rem] uppercase tracking-wider border-b border-primary-light">Descargar</th>
                         </tr>
                     </thead>
@@ -35,11 +35,11 @@
                         <tr class="hover:bg-bg-light even:bg-bg-input even:hover:bg-bg-light border-b border-border-table">
                             <td class="p-4 font-medium">{{ $nomina->mes }}</td>
                             <td class="p-4">{{ $nomina->anio }}</td>
-                            <td class="p-4">Bs. {{number_format($nomina->sueldo_basico,2,',','.')}}</td>
-                            <td class="p-4 text-success">Bs. {{number_format($nomina->total_asignaciones,2,',','.')}}</td>
-                            <td class="p-4 text-error">Bs. {{number_format($nomina->total_deducciones,2,',','.')}}</td>
-                            <td class="p-4 font-bold text-primary-dark">Bs. {{ number_format($nomina->neto_a_pagar, 2, ',', '.') }}</td>
-                            <td class="p-4 text-center">
+                            <td class="hidden md:table-cell p-4">Bs. {{number_format($nomina->sueldo_basico,2,',','.')}}</td>
+                            <td class="hidden md:table-cell p-4 text-success">Bs. {{number_format($nomina->total_asignaciones,2,',','.')}}</td>
+                            <td class="hidden md:table-cell p-4 text-error">Bs. {{number_format($nomina->total_deducciones,2,',','.')}}</td>
+                            <td class="p-4 font-bold text-primary-dark whitespace-nowrap">Bs. {{ number_format($nomina->neto_a_pagar, 2, ',', '.') }}</td>
+                            <td class="hidden md:table-cell p-4 text-center">
                                 <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-[0.8rem] font-medium">Pagado</span>
                             </td>
                             <td class="p-4 text-center">

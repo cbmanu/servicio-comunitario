@@ -19,8 +19,10 @@ class RegisterController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'cedula' => 'required|string|max:20',
+            'cedula' => 'required|integer|exists:datos_trabajador,cedula',
             'password' => 'required|string|min:8|confirmed',
+        ], [
+            'cedula.exists' => 'La cédula no está registrada en los datos de trabajadores.',
         ]);
         // creacion usuario
         $user=User::create([
