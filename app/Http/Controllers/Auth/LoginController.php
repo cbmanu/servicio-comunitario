@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\AuthEmail; 
+use App\Mail\AuthEmail; // Asegúrate de que tu clase se llame AuthEmail con mayúsculas
 
 
 class LoginController extends Controller
