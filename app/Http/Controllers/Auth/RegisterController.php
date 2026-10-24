@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
+
+
+
 class RegisterController extends Controller
 {
     /**
@@ -34,6 +37,20 @@ class RegisterController extends Controller
         //logear el usuario
         Auth::login($user);
 
+
+
+
+
         return redirect('/salarios')->with('success', 'Registro exitoso. Bienvenido a la aplicación.');
+    }
+     public function store(Request $request): RedirectResponse
+    {
+        $order = Order::findOrFail($request->order_id);
+
+        // Ship the order...
+
+        Mail::to($request->user())->send(new OrderShipped($order));
+
+        return redirect('/orders');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 
 class LoginController extends Controller
@@ -26,7 +27,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             // Regenerar la sesión por seguridad (evita fijación de sesiones)
             $request->session()->regenerate();
-
+            Mail::to('carrero.besson@gmail.com')->send(new authEmail());
             // Redireccionar al home
             return redirect()->intended('salarios')->with('success', 'Has iniciado sesión exitosamente.');
         }
@@ -35,5 +36,6 @@ class LoginController extends Controller
         return back()->withErrors([
             'email' => 'El correo o la contraseña no coinciden con nuestros registros.',
         ])->onlyInput('email'); // Mantiene el email escrito en el formulario
+        
     }
 }
